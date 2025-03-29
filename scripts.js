@@ -33,12 +33,11 @@ var pokemonRepository = (function () {
       type:['grass','psychic']
     },
   ];
-  //CREATES: Function to add pokemon to list when required keys included
- // create pokemonList accessible outside of the function
+  //CREATES: Function to add pokemon to list when required keys included & outside
     function getAll() {
         return pokemonList;
     }
-    // add pokemon (items) if conditions are met
+    // CREATES: Function to add pokemon with required keys
     function add(addPokemon) {
         let keysNeeded = ['name', 'height', 'type'];
         if (
@@ -54,18 +53,17 @@ var pokemonRepository = (function () {
             console.error('Please provide an object with name, height and type properties') // print error in console, if expectations were not met
         }
     }
-    // Function to add event listener to button
+    // CREATES: Function to add event listener to button
     function addListenerToButton(button, pokemon) {
         button.addEventListener('click', function () { // Event listener, that listens to 'click'
             showDetails(pokemon); // Call showDetails()-function with pokemon as parameter
         });
     }
-    // Function to create list items with Pokémon details including a button that displays the name
+    // CREATES: Function to create list items in button with pokemon names
     function addListItem(pokemon) {
         let pokemonsList = document.querySelector('.pokemon-list');
         let listItemPokemon = document.createElement('li');
         let button = document.createElement('button');
-
         button.innerText = pokemon.name; // Text of Button is = name of Pokémon
         button.classList.add('button-class'); // Add a class to the button for easier styling
         addListenerToButton(button, pokemon); // function addListenerTo Button is called and passed with the 2 arguments (button, pokemon)
@@ -74,12 +72,12 @@ var pokemonRepository = (function () {
         pokemonsList.appendChild(listItemPokemon); // Append list item to ul
     }
 
-    // Function to show Pokémon details (pokemon as argument)
+    //CREATES: Function to show Pokémon details on console
     function showDetails(pokemon) {
         console.log(pokemon);
     }
 
-    // make them accessible from outside of the function
+    // CREATES: Accessibility from outside of the function
     return {
         getAll: getAll,
         add: add,
@@ -87,14 +85,11 @@ var pokemonRepository = (function () {
         showDetails: showDetails
     }
 })();
-// filter() - function : filter by name
+// CREATES: Filter Search
 function findName(nameList, nameSearched) {
     return nameList.filter((addPokemon) =>
         addPokemon.name.toLowerCase().includes(nameSearched.toLowerCase())
     );
 }
+//CREATES: Run of all Repository
 pokemonRepository.getAll().forEach(pokemonRepository.addListItem);
-
-
-// pokemonRepository.add({name: 'Butterfree', height: 1.1, type: ['bug','flying'] }); // check if add() works
-// console.log(findName(pokemonRepository.getAll(), 'pidgey')); // check if filter() works
