@@ -1,0 +1,22 @@
+:root {
+--main-blue:#0075BE;
+--secondary-blue: #3B4CCA;
+--main-yellow: #FFDE00;
+--secondary-yellow:#B3A125;
+--main-red: #FF0000;
+--secondary-red: #CC0000;
+--white:white;
+--grey:rgb(49, 43, 43);
+}
+
+body {
+  font-size: 20px;
+  margin: 80px;
+  text-align: center;
+  background-image: url('../img/smallback.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height:100vh;
+  font-family: "VT323", monospace;
+}
